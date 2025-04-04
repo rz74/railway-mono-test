@@ -1,0 +1,7 @@
+Flask
+flask-cors
+requests
+certifi
+Pillow
+pycryptodome
+gunicorn
