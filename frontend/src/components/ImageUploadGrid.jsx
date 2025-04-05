@@ -70,10 +70,10 @@ const ImageUploadGrid = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 text-white p-6">
-      <h1 className="text-4xl font-bold mb-2">🧠 Memory Puzzle Uploader</h1>
+      <h1 className="text-4xl font-bold mb-2">🧠 Memory Puzzle Generator</h1>
       <p className="text-sm text-gray-300 mb-4">
         Upload images, choose display indices, and generate an interactive memory puzzle. 
-        Select the correct image sequence to unlock a hidden destination.
+        Select the correct image sequence to unlock a hidden destination. Images will be AES encrypted and stored securely.
       </p>
 
       <div className="space-y-6">
@@ -140,16 +140,16 @@ const ImageUploadGrid = () => {
             <option value="jump">Jump (redirects to the target URL)</option>
             <option value="mirror">Mirror (mirrors the target — experimental)</option>
           </select>
-          <input
-            type="text"
-            placeholder="Page Title"
+          <label className="text-sm mb-1 font-medium">Page Title</label>
+<p className="text-xs text-gray-400 mb-1">Shown as the heading on the puzzle page</p>
+<input type="text" placeholder="Page Title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             className="px-3 py-2 rounded text-black"
           />
-          <input
-            type="text"
-            placeholder="Failure Message"
+          <label className="text-sm mb-1 font-medium">Failure Message</label>
+<p className="text-xs text-gray-400 mb-1">Displayed when the user enters the wrong answer twice</p>
+<input type="text" placeholder="Failure Message"
             value={failMessage}
             onChange={(e) => setFailMessage(e.target.value)}
             className="px-3 py-2 rounded text-black"
@@ -192,11 +192,11 @@ const ImageUploadGrid = () => {
 
         <p className="mt-6 text-sm text-blue-400 underline">
           <a
-            href="https://github.com/rz74/Memory-Puzzle-Web-App"
+            href="https://github.com/rz74"
             target="_blank"
             rel="noopener noreferrer"
           >
-            View source on GitHub
+            View Author on GitHub
           </a>
         </p>
       </div>
