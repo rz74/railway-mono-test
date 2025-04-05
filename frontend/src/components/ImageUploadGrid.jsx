@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import axios from 'axios';
 
@@ -9,9 +10,8 @@ const ImageUploadGrid = () => {
   const [targetUrl, setTargetUrl] = useState("https://example.com");
   const [title, setTitle] = useState("Secret Puzzle");
   const [failMessage, setFailMessage] = useState("Wrong again? Try harder!");
-  const [netlifyToken, setNetlifyToken] = useState("");
-  const [netlifyUrl, setNetlifyUrl] = useState("");
   const [zipId, setZipId] = useState("");
+  const [netlifyUrl, setNetlifyUrl] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleNumChange = (e) => {
@@ -54,10 +54,6 @@ const ImageUploadGrid = () => {
     formData.append("title", title);
     formData.append("failMessage", failMessage);
 
-    if (netlifyToken.trim()) {
-      formData.append("token", netlifyToken);
-    }
-
     try {
       setLoading(true);
       const res = await axios.post("/generate-site", formData);
@@ -76,7 +72,8 @@ const ImageUploadGrid = () => {
     <div className="min-h-screen bg-gray-900 text-white p-6">
       <h1 className="text-4xl font-bold mb-2">🧠 Memory Puzzle Uploader</h1>
       <p className="text-sm text-gray-300 mb-4">
-        Upload images, choose display index, and generate your puzzle.
+        Upload images, choose display indices, and generate an interactive memory puzzle. 
+        Select the correct image sequence to unlock a hidden destination.
       </p>
 
       <div className="space-y-6">
@@ -140,8 +137,8 @@ const ImageUploadGrid = () => {
             onChange={(e) => setDeliveryMode(e.target.value)}
             className="px-3 py-2 rounded text-black"
           >
-            <option value="mirror">Mirror</option>
-            <option value="jump">Jump</option>
+            <option value="jump">Jump (redirects to the target URL)</option>
+            <option value="mirror">Mirror (mirrors the target — experimental)</option>
           </select>
           <input
             type="text"
@@ -157,28 +154,6 @@ const ImageUploadGrid = () => {
             onChange={(e) => setFailMessage(e.target.value)}
             className="px-3 py-2 rounded text-black"
           />
-        </div>
-
-        <div>
-          <label className="block text-sm mb-1">Netlify Access Token:</label>
-          <input
-            type="text"
-            placeholder="Paste your Netlify token here"
-            value={netlifyToken}
-            onChange={(e) => setNetlifyToken(e.target.value)}
-            className="w-full px-3 py-2 rounded text-black"
-          />
-          <p className="text-xs text-gray-400 mt-1">
-            Don’t have one?{" "}
-            <a
-              href="https://app.netlify.com/user/applications#personal-access-tokens"
-              className="underline text-blue-400"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Get a token
-            </a>
-          </p>
         </div>
 
         <div className="flex gap-4 items-center">
@@ -203,7 +178,7 @@ const ImageUploadGrid = () => {
 
         {netlifyUrl && (
           <div className="mt-4 text-green-400">
-            ✅ Site deployed! Visit:{" "}
+            ✅ Site ready! Visit:{" "}
             <a
               href={netlifyUrl}
               className="underline text-blue-300"
