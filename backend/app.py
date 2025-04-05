@@ -56,7 +56,7 @@ def generate_site():
         if not (5 <= len(filenames) <= 50) or not (5 <= len(indices) <= 50):
             return jsonify({"error": "Expected 5 to 50 filenames and indices"}), 400
         if not target_url:
-            return jsonify({"error": "Missing target URL"}), 400
+            return jsonify({"error": "Missing target URL!"}), 400
         if not delivery_mode:
             return jsonify({"error": "Missing delivery mode"}), 400
 
