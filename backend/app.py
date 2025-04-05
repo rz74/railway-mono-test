@@ -81,9 +81,12 @@ def generate_site():
                 fail_message=fail_message
             )
 
+        print(f"✅ Generated site at: {site_path}")
         site_id = os.path.basename(site_path)
+        print(f"🪪 Site ID: {site_id}")
         base_url = request.host_url.rstrip("/")
         site_url = f"{base_url}/sites/{site_id}/"
+        print(f"🔗 Final URL: {site_url}")
         return jsonify({"url": site_url})
 
     except Exception as e:
