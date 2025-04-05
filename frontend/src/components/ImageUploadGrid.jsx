@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import axios from 'axios';
 
@@ -125,35 +124,53 @@ const ImageUploadGrid = () => {
           </div>
         </div>
 
-        <div className="space-y-4">
-          <label className="text-sm mb-1 font-medium">Target URL</label>
-<input type="text" placeholder="Target URL"
-            value={targetUrl}
-            onChange={(e) => setTargetUrl(e.target.value)}
-            className="px-3 py-2 rounded text-black"
-          />
-          <label className="text-sm mb-1 font-medium">Delivery Mode</label>
-<select value={deliveryMode}
-            onChange={(e) => setDeliveryMode(e.target.value)}
-            className="px-3 py-2 rounded text-black"
-          >
-            <option value="jump">Jump (redirects to the target URL)</option>
-            <option value="mirror">Mirror (mirrors the target — experimental)</option>
-          </select>
-          <label className="text-sm mb-1 font-medium">Page Title</label>
-<p className="text-xs text-gray-400 mb-1">Shown as the heading on the puzzle page</p>
-<input type="text" placeholder="Page Title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            className="px-3 py-2 rounded text-black"
-          />
-          <label className="text-sm mb-1 font-medium">Failure Message</label>
-<p className="text-xs text-gray-400 mb-1">Displayed when the user enters the wrong answer twice</p>
-<input type="text" placeholder="Failure Message"
-            value={failMessage}
-            onChange={(e) => setFailMessage(e.target.value)}
-            className="px-3 py-2 rounded text-black"
-          />
+        <div className="space-y-6">
+          <div>
+            <label className="text-sm mb-1 font-medium">Target URL</label>
+            <input
+              type="text"
+              placeholder="Target URL"
+              value={targetUrl}
+              onChange={(e) => setTargetUrl(e.target.value)}
+              className="px-3 py-2 rounded text-black w-full"
+            />
+          </div>
+
+          <div>
+            <label className="text-sm mb-1 font-medium">Delivery Mode</label>
+            <select
+              value={deliveryMode}
+              onChange={(e) => setDeliveryMode(e.target.value)}
+              className="px-3 py-2 rounded text-black w-full"
+            >
+              <option value="jump">Jump (redirects to the target URL)</option>
+              <option value="mirror">Mirror (mirrors the target — experimental)</option>
+            </select>
+          </div>
+
+          <div>
+            <label className="text-sm mb-1 font-medium">Page Title</label>
+            <p className="text-xs text-gray-400 mb-1">Heading on the puzzle page</p>
+            <input
+              type="text"
+              placeholder="Page Title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              className="px-3 py-2 rounded text-black w-full"
+            />
+          </div>
+
+          <div>
+            <label className="text-sm mb-1 font-medium">Failure Message</label>
+            <p className="text-xs text-gray-400 mb-1">Displayed when the user enters the wrong answer</p>
+            <input
+              type="text"
+              placeholder="Failure Message"
+              value={failMessage}
+              onChange={(e) => setFailMessage(e.target.value)}
+              className="px-3 py-2 rounded text-black w-full"
+            />
+          </div>
         </div>
 
         <div className="flex gap-4 items-center">
