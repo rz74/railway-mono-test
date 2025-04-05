@@ -70,7 +70,7 @@ def generate_site():
                 f.save(save_path)
                 image_paths.append(save_path)
 
-            site_path = build_puzzle_site(
+            _, site_path = build_puzzle_site(
                 image_paths=image_paths,
                 labels=filenames,
                 indices=indices,
