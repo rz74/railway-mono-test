@@ -70,10 +70,11 @@ const ImageUploadGrid = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 text-white p-6">
-      <h1 className="text-4xl font-bold mb-2">🧠 Memory Puzzle Generator</h1>
+      <h1 className="text-4xl font-bold mb-2">🧠 Memory Puzzle Uploader</h1>
       <p className="text-sm text-gray-300 mb-4">
         Upload images, choose display indices, and generate an interactive memory puzzle. 
-        Select the correct image sequence to unlock a hidden destination. Images will be AES encrypted and stored securely.
+        Select the correct image sequence to unlock a hidden destination.
+        Images are AES encrypted and stored securely.
       </p>
 
       <div className="space-y-6">
@@ -124,16 +125,15 @@ const ImageUploadGrid = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <input
-            type="text"
-            placeholder="Target URL"
+        <div className="space-y-4">
+          <label className="text-sm mb-1 font-medium">Target URL</label>
+<input type="text" placeholder="Target URL"
             value={targetUrl}
             onChange={(e) => setTargetUrl(e.target.value)}
             className="px-3 py-2 rounded text-black"
           />
-          <select
-            value={deliveryMode}
+          <label className="text-sm mb-1 font-medium">Delivery Mode</label>
+<select value={deliveryMode}
             onChange={(e) => setDeliveryMode(e.target.value)}
             className="px-3 py-2 rounded text-black"
           >
@@ -196,7 +196,7 @@ const ImageUploadGrid = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            View Author on GitHub
+            View author on GitHub
           </a>
         </p>
       </div>
